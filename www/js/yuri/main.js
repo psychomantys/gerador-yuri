@@ -1,4 +1,14 @@
 
+function indexOfExt(list, item) {
+	var keys = Object.keys(list);
+	for (var i = 0; i < keys.length ; i++){
+		if( list[keys[i]]===item ){
+			return keys[i];
+		}
+	}
+	return -1;
+}
+
 define( function() {
 	return function Yuri() {
 	
@@ -8,8 +18,6 @@ define( function() {
 			temp.reverse();
 			for(i=0; i<temp.length ; ++i){
 				saida[i]=this.d2h(this.tabela[temp[i]]-i+temp.length);
-				alert(""+saida[i]+" "+temp[i]+" ");
-						alert(this.tabela[temp[i]]);
 			}
 			return saida;
 		};
@@ -18,9 +26,13 @@ define( function() {
 			var saida=[];
 			var inp=temp.split(" ");
 			for(i=0; i<inp.length ; ++i){
-				saida[i]=this.tabela.indexOf( parseInt(inp[i],16)+i );
-				alert("|"+(parseInt(inp[i],16)+i).toString()+"|"+this.tabela["a"]);
+				var num=parseInt(inp[i],16)+i-inp.length;
+				if( num<0 ){
+					num=256+num;
+				}
+				saida[i]=indexOfExt( this.tabela, num );
 			}
+			saida.reverse();
 			return saida;
 		};
 
@@ -37,8 +49,7 @@ define( function() {
 			return parseInt(h,16);
 		};
 
-		this.tabela=[];
-//		this.tabela={};
+		this.tabela={};
 
 		var i=0;
 		// de ' ate /
