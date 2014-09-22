@@ -3,6 +3,7 @@ require.config({
 	"baseUrl": ".",
 	"paths": {
 		"jquery": "thirdparty/jquery",
+		"yuri": "js/yuri/main",
 		"bootstrap": "thirdparty/bootstrap/dist/js/bootstrap.min"
 	},
 	shim: {
@@ -16,7 +17,7 @@ require.config({
 });
 
 
-require(['jquery', "js/yuri/main", "bootstrap"],
+require(['jquery', 'yuri', 'bootstrap'],
 function( $, Yuri ) {
 
 	var yuri = new Yuri();
