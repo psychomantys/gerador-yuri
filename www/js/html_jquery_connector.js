@@ -26,13 +26,11 @@ function( $, Yuri ) {
 		$('#button_code').click( function(){
 			$('#output').text( 
 				yuri.code_string($("#input").val()).join(" ").toUpperCase()
-//				yuri.code_string($("#input_code").val()).join(" ");
 			);
 		});
 		$('#button_decode').click( function(){
 			$('#output').text( 
 				yuri.decode_string($("#input").val()).join("")
-//				yuri.code_string($("#input_code").val()).join(" ");
 			);
 		});
 	});
