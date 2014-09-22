@@ -12,40 +12,25 @@
 	<body>
 <div class="container">
 <div class="jumbotron"> 
-<!--
-	<div class="input-group">
-		<a id='button_decode' href='#' class="input-group-addon">Decodificar</a>
-		<input id='input' type="text" class="form-control" placeholder="Entre com a frase aqui:">
-		<a id='button_code' href='#' class="input-group-addon">Codificar</a>
-	</div>
--->
 
-<!--
-	<div class="row">
-	<div class="col-lg-6">
--->
-	<div class="btn-group btn-group-justified">
-	<div class="btn-group">
-		<button id='button_decode' class="btn btn-default" type="button">Decodificar</button>
-	</div>
-	<div class="btn-group">
-		<button id='button_code' class="btn btn-default" type="button">Codificar</button>
-	</div>
-	</div>
-	<input id='input' type="text" class="form-control" placeholder="Entre com a frase aqui:">
-<!--
-	</div><!-- /.col-lg-6 -- >
-	</div><!-- /.row -- >
--->
+	<input id="login_input" type="text" class="form-control" placeholder="Usuário">
+	<input id="passwd_input" type="password" class="form-control" placeholder="Senha">
+	<button id='button_enter' class="btn btn-default" type="button">Entrar</button>
 
 
-	<div class="alert alert-info">
-		<p id='output'>Digite a frase e pressione o botão...</p>
-	</div>
+	<div class="alert alert-danger"><p>Senha ou Usuário errado...</p></div>
 	<!--
 	<script type="text/javascript" src="cordova.js"></script>
 	<script type="text/javascript" src="thirdparty/bootstrap/dist/js/bootstrap.min.js"></script> -->
-	<script type="text/javascript" data-main="js/html_jquery_connector" src="thirdparty/require.js"></script>
+	<script type="text/javascript" src="thirdparty/jquery.js"></script>
+	<script type="text/javascript">
+		$(document).ready( function(){
+			$('#button_enter').click( function(){
+				if( $('#login_input').val()=="psy" && $('#login_input').val()=="psy" ){
+				}
+			});
+		});
+	</script>
 </div>
 </div>
 	</body>
