@@ -55,7 +55,8 @@
     "dependencies": {
       "jquery": "github:jquery/jquery/2.1.1",
       "require": "github:jrburke/requirejs/2.1.10",
-      "bootstrap": "github:twbs/bootstrap/master"
+      "bootstrap": "github:twbs/bootstrap/master",
+      "bcrypt": "github:dcodeIO/bcrypt.js/2.0.2"
     }
   }
 }

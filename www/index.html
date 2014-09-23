@@ -10,28 +10,46 @@
 		<title>Conversor</title>
 	</head>
 	<body>
+
+
 <div class="container">
 <div class="jumbotron"> 
 
 	<input id="login_input" type="text" class="form-control" placeholder="Usuário">
 	<input id="passwd_input" type="password" class="form-control" placeholder="Senha">
-	<button id='button_enter' class="btn btn-default" type="button">Entrar</button>
+	<div class="btn-group btn-group-justified">
+	<div class="btn-group">
+		<button id='button_enter' class="btn btn-default" type="button">Entrar</button>
+	</div>
+	</div>
 
 
-	<div class="alert alert-danger"><p>Senha ou Usuário errado...</p></div>
-	<!--
-	<script type="text/javascript" src="cordova.js"></script>
-	<script type="text/javascript" src="thirdparty/bootstrap/dist/js/bootstrap.min.js"></script> -->
+	<div id='aviso' class="alert alert-danger hide"><p>Senha ou Usuário errado...</p></div>
+
 	<script type="text/javascript" src="thirdparty/jquery.js"></script>
+	<script type="text/javascript" src="thirdparty/bcrypt/dist/bcrypt.min.js"></script>
 	<script type="text/javascript">
+		var bcrypt=dcodeIO.bcrypt;
+		var passwd_hash='$2a$08$2zUKQU/93tGMkJ0LXo5PN.5IhZWh4KLB.Jmtu/0WJ5./RBAYJMtR2';
+		var user_hash='$2a$08$u0DmZOiRyD4kJ82cumR0dO..hd4Ja37ARDGhGdHR.mjoRPM.anG9K';
 		$(document).ready( function(){
+			$('#aviso').hide(1);
 			$('#button_enter').click( function(){
-				if( $('#login_input').val()=="psy" && $('#login_input').val()=="psy" ){
+				$('#aviso').removeClass('hide');
+				if( bcrypt.compareSync($('#login_input').val(),user_hash) && bcrypt.compareSync($('#passwd_input').val(),passwd_hash) ){
+					window.location="main.html";
+				}else{
+					$('#aviso').show();
+					setTimeout(function(){
+						$('#aviso').hide(1000);
+					},2000);
 				}
 			});
 		});
 	</script>
 </div>
 </div>
+
+
 	</body>
 </html>
