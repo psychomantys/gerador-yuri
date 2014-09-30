@@ -6,11 +6,6 @@ require.config({
 	}
 });
 
-describe("Testando o construtor", function() {
-	it("Inicializar e destruir", function() {
-		expect(false).not.toBe(true);
-	});
-});
 define(['yuri'], function(Yuri) {
 //require(["yuri"],
 //function (Yuri) {
@@ -54,6 +49,10 @@ describe("Entradas para codificar", function() {
 		expect(yuri.code_string(' !"#$%&\'()*+,-./')).
 		toEqual(['bf','bd','bb','b9','b7','b5','b3','b1','af','ad','ab','a9','a7','a5','a3','a1']);
 	});
+	it('Conf-Brasileira-De-Canoagem', function() {
+		expect(yuri.code_string('Conf-Brasileira-De-Canoagem')).
+			toEqual(['08','ff','00','f9','06','04','f6','d7','c0','f7','d5','bd','f0','00','f6','f1','f7','f3','fc','e9','f9','c8','b2','ea','f1','f1','c4']);
+	});
 });
 describe("Entradas para decodificar", function() {
 	var yuri=new Yuri();
@@ -87,6 +86,11 @@ describe("Entradas para decodificar", function() {
 	it('bf bd bb b9 b7 b5 b3 b1 af ad ab a9 a7 a5 a3 a1', function() {
 		expect(yuri.decode_string('bf bd bb b9 b7 b5 b3 b1 af ad ab a9 a7 a5 a3 a1').join("")).
 			toEqual(' !"#$%&\'()*+,-./');
+	});
+
+	it('08 ff 00 f9 06 04 f6 d7 c0 f7 d5 bd f0 00 f6 f1 f7 f3 fc e9 f9 c8 b2 ea f1 f1 c4', function() {
+		expect(yuri.decode_string('08 ff 00 f9 06 04 f6 d7 c0 f7 d5 bd f0 00 f6 f1 f7 f3 fc e9 f9 c8 b2 ea f1 f1 c4').join("")).
+			toEqual('Conf-Brasileira-De-Canoagem');
 	});
 });
 
